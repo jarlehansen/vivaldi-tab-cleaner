@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vivaldi Tab Cleaner</title>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Vivaldi Tab Cleaner</h1>
+    
+    <div class="toggle-container">
+      <label for="enabledToggle">Extension Enabled</label>
+      <input type="checkbox" id="enabledToggle" checked>
+    </div>
+    
+    <div class="toggle-container">
+      <label for="autoCleanToggle">Auto-clean Daily</label>
+      <input type="checkbox" id="autoCleanToggle">
+    </div>
+    
+    <button id="cleanNowBtn">Clean Yesterday's Tabs Now</button>
+    
+    <div class="stats">
+      <p>Total tabs closed: <span id="totalClosed">0</span></p>
+      <p>Last cleaned: <span id="lastCleaned">Never</span></p>
+      <p>Tabs closed in last cleaning: <span id="lastCleanedCount">0</span></p>
+    </div>
+    
+    <div class="info">
+      <p>This extension automatically closes tabs that were opened yesterday.</p>
+      <p>Pinned tabs and stacked tabs are preserved.</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
