@@ -79,12 +79,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 // Set up auto-cleaning if enabled
-chrome.alarms.create("dailyClean", { periodInMinutes: 1440 }); // Once per day
-
-chrome.alarms.onAlarm.addListener((alarm) => {
-  if (alarm.name === "dailyClean") {
+chrome.windows.onFocusChanged.addListener((windowId) => {
+  console.log('window id' + windowId);
+  if (windowId !== chrome.windows.WINDOW_ID_NONE) {
+    console.log('her her her');
+    // Browser window is focused, run the cleanup check
     chrome.storage.local.get(['enabled', 'autoClean'], (data) => {
+      console.log('hipp hipp');
       if (data.enabled && data.autoClean) {
+        console.log('hurra');
         closeYesterdayTabs();
       }
     });
