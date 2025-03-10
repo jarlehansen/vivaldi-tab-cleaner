@@ -27,7 +27,7 @@ function closeYesterdayTabs() {
       
       // Check if tab was last accessed yesterday
       const lastAccessed = new Date(tab.lastAccessed);
-      if (lastAccessed >= yesterdayStart && lastAccessed < today) {
+      if (lastAccessed <= yesterdayStart && lastAccessed < today) {
         tabsToClose.push(tab.id);
       }
     }
