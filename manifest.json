@@ -5,7 +5,8 @@
   "description": "Automatically closes tabs that were opened yesterday, while preserving pinned and stacked tabs.",
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "alarms"
   ],
   "background": {
     "service_worker": "background.js"
