@@ -1,8 +1,6 @@
 // Constants
 const MILLISECONDS_PER_DAY = 86400000; // 24 hours in milliseconds
 
-console.log("her!");
-
 // Function to close tabs from yesterday
 function closeYesterdayTabs() {
   // Get current date and set to midnight
