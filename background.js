@@ -22,10 +22,10 @@ function closeYesterdayTabs() {
       
       // Skip stacked tabs (Vivaldi specific)
       if (tab.groupId !== undefined && tab.groupId !== -1) continue;
-      
+
       // Check if tab was last accessed yesterday
       const lastAccessed = new Date(tab.lastAccessed);
-      if (lastAccessed <= yesterdayStart && lastAccessed < today) {
+      if (lastAccessed < today) {
         tabsToClose.push(tab.id);
       }
     }
@@ -80,14 +80,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 // Set up auto-cleaning if enabled
 chrome.windows.onFocusChanged.addListener((windowId) => {
-  console.log('window id' + windowId);
   if (windowId !== chrome.windows.WINDOW_ID_NONE) {
-    console.log('her her her');
     // Browser window is focused, run the cleanup check
     chrome.storage.local.get(['enabled', 'autoClean'], (data) => {
-      console.log('hipp hipp');
       if (data.enabled && data.autoClean) {
-        console.log('hurra');
         closeYesterdayTabs();
       }
     });
