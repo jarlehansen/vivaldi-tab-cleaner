@@ -55,7 +55,7 @@ chrome.runtime.onInstalled.addListener(() => {
     'totalClosed': 0,
     'lastCleaned': null,
     'lastCleanedCount': 0,
-    'autoClean': false
+    'autoClean': true
   });
 });
 
